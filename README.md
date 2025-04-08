@@ -1,4 +1,4 @@
-# Introdução à Segurança no Desenvolvimento Web (Frontend e Backend)
+# Introdução à Segurança no Desenvolvimento Web
 Neste breve artigo, vamos elaborar algumas vulnerabilidades e procedimentos comuns relacionados a segurança da informação em sistemas web.
 
 Antes de abordarmos as vulnerabilidades e os procedimentos para mitigá-las, é essencial entender que um software pode conter inúmeras brechas de segurança, algumas são mais óbvias ou conhecidas, e podem ser amplamente exploradas, enquanto outras podem ser extremamente complexas e pouco viáveis para um atacante comum.
