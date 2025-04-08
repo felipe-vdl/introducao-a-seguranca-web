@@ -98,7 +98,7 @@ Como ter uploads mais seguros:
 - Atribua nomes aleatórios ou hash ao salvar o arquivo:
   - Não use o nome original do arquivo enviado pelo usuário. Gere nomes únicos usando UUIDs, hashes ou timestamps, o que dificulta tentativas de acesso direto por URL e evita conflitos entre arquivos com nomes repetidos. Exemplo: em vez de salvar curriculo.pdf, salve como 3f2a9d7e-cv.pdf ou 1672449832981.pdf.
 
-- Se necessário, armazene arquivos fora de rotas públicas:
+- Quando for adequado, armazene arquivos fora de rotas públicas:
   - Evite salvar arquivos que deveriam ser privados diretamente em rotas/diretórios públicos acessíveis sem autenticação.
 
 - Desabilite a execução de arquivos no diretório de upload:
