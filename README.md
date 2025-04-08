@@ -108,7 +108,7 @@ Como ter uploads mais seguros:
   - Em vez de tentar bloquear extensões perigosas (blacklist), aceite apenas os formatos realmente adequados para aquela funcionalidade (ex: .jpg, .png, .pdf).
 
 ## 5. Rotas Inseguras:
-Rotas mal protegidas são uma das portas de entrada mais comuns para ataques em enpoints de APIs e páginas web. A falta de uma configuração segura pode permitir desde acessos não autorizados até a exploração automatizada por bots, web scrapers e scripts maliciosos.
+Rotas mal protegidas são uma das portas de entrada mais comuns para ataques em endpoints de APIs e páginas web. A falta de uma configuração segura pode permitir desde acessos não autorizados até a exploração automatizada por bots, web scrapers e scripts maliciosos.
 
 Problemas comuns:
 - Falta de autenticação/autorização:
