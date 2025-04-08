@@ -105,7 +105,7 @@ Como ter uploads mais seguros:
   - Configure o servidor (Apache, Nginx, etc.) para não executar nenhum tipo de script no diretório onde os arquivos são armazenados.
 
 - Use listas de arquivos permitidos (whitelist):
-  - Em vez de tentar bloquear extensões perigosas (blacklist), aceite apenas os formatos realmente necessários (ex: .jpg, .png, .pdf).
+  - Em vez de tentar bloquear extensões perigosas (blacklist), aceite apenas os formatos realmente adequados para aquela funcionalidade (ex: .jpg, .png, .pdf).
 
 ## 5. Rotas Inseguras:
 Rotas mal protegidas são uma das portas de entrada mais comuns para ataques em enpoints de APIs e páginas web. A falta de uma configuração segura pode permitir desde acessos não autorizados até a exploração automatizada por bots, web scrapers e scripts maliciosos.
