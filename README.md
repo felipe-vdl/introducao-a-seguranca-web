@@ -65,6 +65,9 @@ Como evitar o vazamento de informações sensíveis:
 - Nunca suba arquivos .env ou similares para repositórios publicados.
   - Por exemplo, use .gitignore para garantir que esses arquivos não sejam inclusos.
 
+- Nunca use credenciais hardcoded (diretamente no código fonte):
+  - Não inclua chaves de API, tokens e senhas diretamente em arquivos de código fonte. Prefira sempre chamar essas informações através de variáveis de ambiente (.env).
+
 - Use armazenamento seguro de senhas:
   - Sempre aplique hashing com algoritmos fortes como bcrypt ou argon2, com salt.
 
@@ -126,6 +129,9 @@ Problemas comuns:
 Como garantir uma boa configuração de rota:
 - Implemente autenticação e autorização adequadas quando necessário:
   - Certifique-se de que cada endpoint que tem a intenção de ser privado verifica quem está fazendo a requisição e se tem permissão para tal. Uma prática comum é usar middlewares de autenticação e níveis de acesso por cargo.
+
+- Valide dados e permissões tanto no frontend quanto no backend:
+  - O frontend pode impedir muitos erros e abusos, mas nunca deve ser o único filtro do sistema. As verificações de permissão, integridade de dados e formato devem sempre ser feitas também no backend. Isso garante que mesmo requisições manipuladas ou feitas via ferramentas como Postman ou scripts externos, passem pelos mesmos critérios de segurança.
 
 - Use rate limiting:
   - Aplique limites de requisição por IP ou por token usando bibliotecas como express-rate-limit (Node.js), throttle (Laravel), entre outras. Isso ajuda a bloquear tentativas automatizadas e tentativas de exploração.
