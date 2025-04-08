@@ -75,7 +75,7 @@ Como evitar o vazamento de informações sensíveis:
   - Certifique-se de que todas as requisições de login e APIs utilizem HTTPS com certificados válidos.
 
 - Configure os tokens e chaves de API com escopo e expiração.
-  - Evite utilizar tokens com muitas permissões não utilizadas e sem tempo de expiração/quantidade de usos.
+  - Evite utilizar tokens com muitas permissões amplas (permissões desnecessárias para a operação ao qual ele foi convencionado) e sem tempo de expiração/quantidade de usos.
 
 Esses pequenos descuidos podem levar a falhas catastróficas para um sistema. Portanto, proteger as credenciais e canais de comunicação é um dos pilares mais importantes da segurança desde as fases iniciais do desenvolvimento.
 
