@@ -31,7 +31,7 @@ Exemplo de código vulnerável:
 No geral, a injeção de código é uma das vulnerabilidades mais perigosas para uma aplicação. Além do exemplo de injeção no frontend que citamos, também são possíveis injeções de código SQL (que afetam o banco de dados), Bash (possibilitando o envio de instruções ao sistema operacional do servidor), e da própria linguagem de programação em uso no backend.
 
 ## 2. CSRF (Cross-Site Request Forgery):
-Podemos encarar o CSRF basicamente como uma "falsificação de requisições", ele é um ataque que explora a confiança do sistema no navegador do usuário. O ataque ocorre quando um usuário autenticado em um site é induzido a executar ações indesejadas nele site, sem perceber, a partir de outra página maliciosa.
+Podemos encarar o CSRF basicamente como uma "falsificação de requisições", ele é um ataque que explora a confiança do sistema no navegador do usuário. O ataque ocorre quando um usuário autenticado em um site é induzido a executar ações indesejadas em um site, sem perceber, através de outra página maliciosa.
 
 Esse tipo de ataque só é possível quando os cookies de autenticação são enviados pelo navegador nas requisições para o site original, mesmo que elas tenham se originado de outro domínio. Em muitos casos, é algo que o navegador faz por padrão, especialmente com cookies sem o atributo SameSite configurado corretamente.
 
