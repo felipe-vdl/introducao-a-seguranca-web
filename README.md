@@ -66,7 +66,7 @@ Como evitar o vazamento de informações sensíveis:
   - Por exemplo, use .gitignore para garantir que esses arquivos não sejam inclusos.
 
 - Nunca use credenciais hardcoded (diretamente no código fonte):
-  - Não inclua chaves de API, tokens e senhas diretamente em arquivos de código fonte. Prefira sempre chamar essas informações através de variáveis de ambiente (.env).
+  - Não inclua chaves de API, tokens e senhas diretamente em arquivos de código fonte. Prefira sempre chamar essas informações através de variáveis de ambiente (.env), acessando-as por meios apropriados para cada linguagem ou framework (como process.env no Node.js ou config() e env() no Laravel).
 
 - Use armazenamento seguro de senhas:
   - Sempre aplique hashing com algoritmos fortes como bcrypt ou argon2, com salt.
