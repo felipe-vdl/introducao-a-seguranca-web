@@ -51,7 +51,7 @@ Existem casos onde essas táticas de mitigação não poderão ser empregadas, p
 Nesses cenários, utilizar o atributo SameSite=Strict nos cookies impediria que o botão funcionasse fora do domínio da rede social, o que quebraria a funcionalidade desejada. Por isso, essas aplicações precisam lidar com a segurança de forma mais refinada — utilizando tokens, verificação de domínio e regras específicas por tipo de ação, para equilibrar a usabilidade e a proteção contra ataques CSRF.
 
 ## 3. Exposição de Informações Sensíveis:
-A exposição informações sensíveis é uma das falhas mais comuns em aplicações web. Essas informações, quando acessíveis por terceiros, podem permitir o controle serviços, bancos de dados, contas de usuário e até de partes da infraestrutura de uma aplicação.
+A exposição informações sensíveis é uma das falhas mais comuns em aplicações web. Essas informações, quando acessíveis por terceiros, podem permitir o controle de serviços internos, bancos de dados, contas de usuário e até de partes da infraestrutura de uma aplicação.
 
 Um erro recorrente é deixar variáveis de ambiente contendo chaves secretas no código-fonte ou em repositórios públicos, como em arquivos .env publicados, ou hard code das credenciais direto no código.
 
