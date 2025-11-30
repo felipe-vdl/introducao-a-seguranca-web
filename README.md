@@ -1,9 +1,9 @@
 # Introdução à Segurança no Desenvolvimento Web
-Neste breve artigo, vamos elaborar algumas vulnerabilidades e procedimentos comuns relacionados a segurança da informação em sistemas web.
+Neste artigo, vamos explorar algumas das vulnerabilidades mais comuns em sistemas web, entender como funcionam, e o que podemos fazer para mitigá-las.
 
-Antes de abordarmos as vulnerabilidades e os procedimentos para mitigá-las, é essencial entender que um software pode conter inúmeras brechas de segurança, algumas são mais óbvias ou conhecidas, e podem ser amplamente exploradas, enquanto outras podem ser extremamente complexas e pouco viáveis para um atacante comum.
+Antes de abordarmos essas vulnerabilidades, é essencial entender que um software pode conter inúmeras brechas de segurança, algumas são mais óbvias/conhecidas, e podem ser amplamente exploradas, enquanto outras podem ser extremamente complexas e pouco viáveis para um atacante comum.
 
-No nosso caso, vamos explorar algumas das mais comuns, para que possamos reconhecê-las e, mais importante, adotarmos práticas que as evitem desde o início. O objetivo é garantir que nossas aplicações sejam construídas com uma base mais segura, reduzindo a exposição a ataques e fortalecendo a confiabilidade do sistema.
+No nosso caso, vamos explorar algumas das mais comuns, para que possamos reconhecê-las e, mais importante, adotar práticas que as evitem. O objetivo é garantir que nossas aplicações sejam construídas com uma base mais segura, reduzindo a exposição a ataques e fortalecendo a confiabilidade de nossos sistemas.
 
 ## 1. XSS (Cross-Site Scripting)
 O XSS (Cross-Site Scripting) é uma das vulnerabilidades mais comuns em aplicações web, que ocorre quando um atacante consegue injetar scripts em um sistema, de forma que ele seja executado pelo servidor, ou pelo navegador de outros usuários que acessam o sistema.
