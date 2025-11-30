@@ -60,13 +60,13 @@ Nesses cenários, utilizar o atributo SameSite=Strict nos cookies impediria que 
 ## 3. Exposição de Informações Sensíveis:
 A exposição de informações sensíveis é outra falha muito comum em aplicações web. Essas informações, quando acessíveis por terceiros, por vezes podem permitir o controle de serviços internos, bancos de dados, contas de usuário e até de partes da infraestrutura de uma aplicação.
 
-Um erro recorrente é deixar variáveis de ambiente contendo chaves secretas no código-fonte da aplicação ou em repositórios públicos, como em arquivos .env publicados, ou hard code das credenciais direto no código.
+Um erro recorrente é deixar variáveis de ambiente contendo chaves secretas no código-fonte da aplicação ou em repositórios, como em arquivos .env publicados, ou hard code das credenciais direto no código.
 
-Mesmo que por acidente, o upload dessas informações sensíveis para sistemas de versionamento pode comprometer seriamente a segurança de uma aplicação, ou de suas dependências (APIs terceiras, recursos de infraestrutura em cloud, etc).
+Mesmo que por acidente, o upload dessas informações sensíveis para sistemas de versionamento (GitHub) pode comprometer seriamente a segurança de uma aplicação, ou de suas dependências (APIs terceiras utilizadas, recursos de infraestrutura em cloud, etc).
 
-Outro problema crítico é armazenar senhas de usuários sem nenhum tipo de hash ou criptografia, salvando-as diretamente no banco de dados em texto puro (plaintext). Isso faz com que, em caso de vazamento, todas as credenciais fiquem imediatamente comprometidas.
+Outro problema crítico é armazenar senhas de usuários sem nenhum tipo de hash ou criptografia, salvando-as diretamente no banco de dados em texto puro (plain text). Isso faz com que, em caso de vazamento, todas as credenciais fiquem imediatamente comprometidas.
 
-Além disso, fazer requisições HTTP (sem o "S") em vez de HTTPS também representa risco, especialmente ao trafegar tokens ou credenciais. Isso permite que dados sejam interceptados facilmente por atacantes em redes Wi-Fi, através de técnicas como man-in-the-middle (MITM), que observam o trafego dos pacotes na rede.
+Além disso, fazer requisições HTTP (sem o "S") em vez de HTTPS também representam risco, especialmente ao trafegar tokens, dados sensíveis e credenciais na requisição. Essas requisições permitem que os dados sejam interceptados facilmente por atacantes em redes Wi-Fi, através de técnicas como man-in-the-middle (MITM), que observam o trafego dos pacotes na rede.
 
 Como evitar o vazamento de informações sensíveis:
 - Nunca suba arquivos .env ou similares para repositórios publicados.
