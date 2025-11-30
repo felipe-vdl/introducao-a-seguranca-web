@@ -72,8 +72,8 @@ Como evitar o vazamento de informações sensíveis:
 - Nunca suba arquivos .env ou similares para repositórios publicados.
   - Por exemplo, use .gitignore para garantir que esses arquivos não sejam inclusos.
 
-- Nunca use credenciais hardcoded (diretamente no código fonte):
-  - Não inclua chaves de API, tokens e senhas diretamente em arquivos de código fonte. Prefira sempre chamar essas informações através de variáveis de ambiente (.env), acessando-as por meios apropriados para cada linguagem ou framework (como process.env no Node.js ou config() e env() no Laravel).
+- Nunca use credenciais hardcoded (diretamente no código-fonte):
+  - Não inclua chaves de API, tokens e senhas diretamente em arquivos de código-fonte. Prefira sempre chamar essas informações através de variáveis de ambiente (.env), acessando-as por meios apropriados para cada linguagem ou framework (como process.env no Node.js ou config() e env() no Laravel).
 
 - Use armazenamento seguro de senhas:
   - Sempre aplique hashing com algoritmos fortes como bcrypt ou argon2, com salt.
@@ -128,7 +128,7 @@ Problemas comuns:
   - Sem limites de requisições por IP ou por token, endpoints públicos (como login, cadastro ou envio de e-mail) podem ser alvo fácil de brute force, spam e ataques de negação de serviço (DoS).
 
 - Mensagens de erro muito detalhadas:
-  - Retornar stack traces, mensagens de banco de dados ou códigos internos pode entregar informações sensíveis a um atacante, como estruturas de tabelas, nomes de funções e até trechos do código fonte.
+  - Retornar stack traces, mensagens de banco de dados ou códigos internos pode entregar informações sensíveis a um atacante, como estruturas de tabelas, nomes de funções e até trechos do código-fonte.
 
 - Má configuração de CORS (Cross-Origin Resource Sharing):
   - Permitir requisições de qualquer origem (Access-Control-Allow-Origin: *) sem restrição pode expor APIs a uso indevido por outros domínios maliciosos. Sempre que possível (e quando for adequado), é importante limitar as origens que de fato tem permissão, e limitar os métodos e headers permitidos.
