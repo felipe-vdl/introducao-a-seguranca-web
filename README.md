@@ -30,6 +30,13 @@ Exemplo de código vulnerável:
 
 No geral, a injeção de código é uma das vulnerabilidades mais perigosas para uma aplicação. Além do exemplo de injeção no frontend que citamos, também são possíveis injeções de código SQL (que afetam o banco de dados), Bash (possibilitando o envio de instruções ao sistema operacional do servidor), e da própria linguagem de programação em uso no backend.
 
+Para mitigar esses tipos de ataque, tenha sempre em mente esses princípios:
+- Sempre validar as entradas de dados (tanto no frontend quanto no backend) para aceitar apenas os formatos esperados, ou transformar esses dados em um formato esperado;
+
+- Sanitizar o conteúdo dessas entradas para neutralizar potenciais execuções de código (ex.: remoção de elementos HTML, scripts, etc);
+
+- Evitar misturar entradas de dados com código executável (ex.: atribuição de .innerHTML, concatenação em código SQL ou Bash, etc);
+
 ## 2. CSRF (Cross-Site Request Forgery):
 Podemos encarar o CSRF basicamente como uma "falsificação de requisições", ele é um ataque que explora a confiança do sistema no navegador do usuário. O ataque ocorre quando um usuário autenticado em um site é induzido a executar ações indesejadas em um site, sem perceber, através de outra página maliciosa.
 
@@ -51,15 +58,15 @@ Existem casos onde essas táticas de mitigação não poderão ser empregadas, p
 Nesses cenários, utilizar o atributo SameSite=Strict nos cookies impediria que o botão funcionasse fora do domínio da rede social, o que quebraria a funcionalidade desejada. Por isso, essas aplicações precisam lidar com a segurança de forma mais refinada — utilizando tokens, verificação de domínio e regras específicas por tipo de ação, para equilibrar a usabilidade e a proteção contra ataques CSRF.
 
 ## 3. Exposição de Informações Sensíveis:
-A exposição de informações sensíveis é uma das falhas mais comuns em aplicações web. Essas informações, quando acessíveis por terceiros, podem permitir o controle de serviços internos, bancos de dados, contas de usuário e até de partes da infraestrutura de uma aplicação.
+A exposição de informações sensíveis é outra falha muito comum em aplicações web. Essas informações, quando acessíveis por terceiros, por vezes podem permitir o controle de serviços internos, bancos de dados, contas de usuário e até de partes da infraestrutura de uma aplicação.
 
-Um erro recorrente é deixar variáveis de ambiente contendo chaves secretas no código-fonte ou em repositórios públicos, como em arquivos .env publicados, ou hard code das credenciais direto no código.
+Um erro recorrente é deixar variáveis de ambiente contendo chaves secretas no código-fonte da aplicação ou em repositórios públicos, como em arquivos .env publicados, ou hard code das credenciais direto no código.
 
-Mesmo que por acidente, o upload dessas informações sensíveis para sistemas de versionamento pode comprometer seriamente a segurança de uma aplicação.
+Mesmo que por acidente, o upload dessas informações sensíveis para sistemas de versionamento pode comprometer seriamente a segurança de uma aplicação, ou de suas dependências (APIs terceiras, recursos de infraestrutura em cloud, etc).
 
-Outro problema crítico é armazenar senhas de usuários sem nenhum tipo de hash ou criptografia, salvando-as diretamente no banco de dados em texto puro (plaintext). Isso faz com que, em caso de vazamento, todas as contas fiquem imediatamente comprometidas.
+Outro problema crítico é armazenar senhas de usuários sem nenhum tipo de hash ou criptografia, salvando-as diretamente no banco de dados em texto puro (plaintext). Isso faz com que, em caso de vazamento, todas as credenciais fiquem imediatamente comprometidas.
 
-Além disso, fazer requisições HTTP (sem o "S") em vez de HTTPS também representa risco, especialmente ao trafegar tokens ou credenciais. Isso permite que dados sejam interceptados facilmente por atacantes em redes Wi-Fi, através de técnicas como man-in-the-middle (MITM).
+Além disso, fazer requisições HTTP (sem o "S") em vez de HTTPS também representa risco, especialmente ao trafegar tokens ou credenciais. Isso permite que dados sejam interceptados facilmente por atacantes em redes Wi-Fi, através de técnicas como man-in-the-middle (MITM), que observam o trafego dos pacotes na rede.
 
 Como evitar o vazamento de informações sensíveis:
 - Nunca suba arquivos .env ou similares para repositórios publicados.
@@ -143,4 +150,6 @@ Como garantir uma boa configuração de rota:
   - Rotas de manutenção, depuração, backups, dashboards administrativos, etc. todas devem passar por autenticação.
 
 - Configure o CORS com critérios adequados:
-  - Permita apenas origens confiáveis, defina os métodos e headers necessários, e evite usar ('Access-Control-Allow-Credentials': '*') de forma inconsciente. Isso impede que domínios externos indesejados interajam com as ruas rotas de forma indevida.
+  - Permita apenas origens confiáveis, defina os métodos e headers necessários, e evite usar ('Access-Control-Allow-Credentials': '*') de forma inconsciente. Isso impede que domínios externos indesejados interajam com as suas rotas de forma indevida.
+
+No geral, essas práticas podem mitigar diversos ataques de brute force, scraping indesejado, exploração automatizada por bots e bypass de permissões.
