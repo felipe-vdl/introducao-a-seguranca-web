@@ -38,20 +38,20 @@ Para mitigar esses tipos de ataque, tenha sempre em mente esses princípios:
 - Evitar misturar entradas de dados com código executável (ex.: atribuição de .innerHTML, concatenação em código SQL ou Bash, etc);
 
 ## 2. CSRF (Cross-Site Request Forgery):
-Podemos encarar o CSRF basicamente como uma "falsificação de requisições", ele é um ataque que explora a confiança do sistema no navegador do usuário. O ataque ocorre quando um usuário autenticado em um site é induzido a executar ações indesejadas em um site, sem perceber, através de outra página maliciosa.
+Podemos encarar o CSRF basicamente como uma "falsificação de requisições", ele é um ataque que explora a confiança do sistema no navegador do usuário. O ataque ocorre quando um usuário autenticado em um site é induzido a executar ações indesejadas em outro site, sem perceber, através de uma página maliciosa.
 
-Esse tipo de ataque só é possível quando os cookies de autenticação são enviados pelo navegador nas requisições para o site original, mesmo que elas tenham se originado de outro domínio. Em muitos casos, é algo que o navegador faz por padrão, especialmente com cookies sem o atributo SameSite configurado corretamente.
+Esse tipo de ataque só é possível quando cookies de autenticação são enviados pelo navegador nas requisições para o site original, mesmo que tenham origem em outro domínio. Em muitos casos, é algo que o navegador faz por padrão, especialmente com cookies sem o atributo SameSite configurado adequadamente.
 
-Se outro site malicioso conseguir fazer o navegador enviar uma requisição ao site onde você está logado (ex: clicando em um link, carregando uma imagem ou formulário oculto), o cookie de sessão é enviado automaticamente junto, validando a requisição como se fosse sua.
+Por exemplo, se outro site malicioso conseguir fazer o navegador enviar uma requisição à um site onde você está logado (ex: clicando em um link, carregando uma imagem ou formulário oculto), o cookie de sessão é enviado na requisição, validando-a como se fosse sua.
 
-O site atacado não tem como distinguir se a requisição foi iniciada pela interface legítima ou por outro site — a não ser que utilize tokens CSRF, verificação de origem ou cookies com SameSite.
+O site atacado não tem como distinguir se a requisição foi iniciada por uma interface legítima ou por outro site — a não ser que utilize tokens CSRF, verificação de origem ou cookies com SameSite adequado.
 
 Como mitigar ataques CSRF:
-- Definir os cookies com SameSite=Strict ou SameSite=Lax, impedindo que sejam enviados em requisições de terceiros.
+- Definir os cookies com SameSite=Strict ou SameSite=Lax, impedindo que sejam enviados em requisições de domínios terceiros;
 
 - Exigir tokens CSRF únicos por sessão ou requisição.
 
-- Validar os cabeçalhos Origin ou Referer para verificar o domínio do qual a requisição foi enviada.
+- Validar os headers Origin ou Referer das requisições, para verificar o domínio do qual a requisição foi enviada.
 
 Existem casos onde essas táticas de mitigação não poderão ser empregadas, por exemplo, quando a própria funcionalidade de um sistema depende que requisições possam ser feitas a partir de outros sites. Um exemplo clássico são as redes sociais que permitem que usuários curtam conteúdos diretamente de sites externos, por meio de botões de "Like" embutidos em blogs, notícias, etc.
 
